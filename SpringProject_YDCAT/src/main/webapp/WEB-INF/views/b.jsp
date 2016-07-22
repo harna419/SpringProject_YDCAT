@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-test aaaa. 병합 테스트
-이거를 수정할것이당
-
-<div> 여기 디브 포인트</div>
-
+:3
 </body>
 </html>

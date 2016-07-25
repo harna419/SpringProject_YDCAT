@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+ 
+ 	<!-- 전체 리스트 -->
+   <select id="selectAll" parameterType="int" resultType="java.util.HashMap">
+        <!-- SELECT * FROM  board order by ref asc, ref_step asc -->
+        SELECT * FROM  board order by ref asc, ref_step asc limit #{startNum},10
+   </select>
+   
+   <!-- 글 갯수 구하기 -->
+	<select id="countNum" resultType="int">
+		select count(*) countNum from board
+	</select>
+
+   <insert id="insertBoard" parameterType="model.board.BoardDto">
+		insert into
+		board (id, subject, content, regdate, readcount, ref, ref_step, ref_level, ip)
+		values(#{id},#{subject},#{content},NOW(),#{readcount}, #{ref}, #{ref_step},#{ref_level},#{ip})
+	</insert>
+
+   <update id="readCount" parameterType="int">
+     update board set readcount=readcount+1 
+     where no=#{no}
+   </update>
+
+	<update id="updateRef">
+     update board set ref=ref+1
+   </update>
+
+   <select id="selectOne" parameterType="int" resultType="model.board.BoardDto">
+     select * from board
+     where no=#{no}
+   </select>
+   
+   <update id="updateBoard" parameterType="model.board.BoardDto">
+		update board set
+		subject=#{subject}, content=#{content}
+		where no=#{no}
+	</update>
+   
+   <delete id="deleteBoard" parameterType="int">
+	  delete from board
+	  where no=#{no}
+	</delete>
+ </mapper>

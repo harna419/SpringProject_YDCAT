@@ -5,20 +5,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="board">
  
+ 	<!-- 전체 리스트 -->
    <select id="selectAll" parameterType="int" resultType="java.util.HashMap">
-        SELECT * FROM  board order by ref asc, ref_step asc;
-        <!--SELECT * FROM  board order by ref asc, ref_step asc limit #{startPage},10;  -->
+        <!-- SELECT * FROM  board order by ref asc, ref_step asc -->
+        SELECT * FROM  board order by ref asc, ref_step asc limit #{startNum},10
    </select>
+   
+   <!-- 글 갯수 구하기 -->
+	<select id="countNum" resultType="int">
+		select count(*) countNum from board
+	</select>
+	
+	<!-- 글검색? -->
+	<!-- <select id="select_search" resultType="java.util.HashMap" parameterType=""> 
+	select * from test_board where ${keyField} like '%${keyWord}%' order by ref asc 
+	</select>  -->
 
    <insert id="insertBoard" parameterType="model.board.BoardDto">
 		insert into
-		board (writer, subject, email, content, password, wdate , ip, ref, ref_step, ref_level, readcount)
-		values(#{writer},#{subject},#{email},#{content},#{password},NOW(),#{ip}, #{ref}, #{ref_step},#{ref_level}, #{readcount})
+		board (id, subject, content, regdate, readcount, ref, ref_step, ref_level, ip)
+		values(#{id},#{subject},#{content},NOW(),#{readcount}, #{ref}, #{ref_step},#{ref_level},#{ip})
 	</insert>
 
    <update id="readCount" parameterType="int">
      update board set readcount=readcount+1 
-     where num=#{num}
+     where no=#{no}
    </update>
 
 	<update id="updateRef">
@@ -27,17 +38,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
    <select id="selectOne" parameterType="int" resultType="model.board.BoardDto">
      select * from board
-     where num=#{num}
+     where no=#{no}
    </select>
    
    <update id="updateBoard" parameterType="model.board.BoardDto">
 		update board set
-		writer=#{writer}, subject=#{subject}, email=#{email}, content=#{content}
-		where num=#{num};
+		subject=#{subject}, content=#{content}
+		where no=#{no}
 	</update>
    
    <delete id="deleteBoard" parameterType="int">
 	  delete from board
-	  where num=#{num}
+	  where no=#{no}
 	</delete>
  </mapper>

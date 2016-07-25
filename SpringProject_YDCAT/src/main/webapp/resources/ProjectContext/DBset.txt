@@ -1,7 +1,7 @@
 
-create database YDCAT
+create database YDCAT;
 
-use YDCAT
+use YDCAT;
 ===========================================
 drop table YD_board;
 create table YD_Board (

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+   "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" 
+   "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+   
+
+<tiles-definitions>
+	<definition name=".main.layout" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/views/side.jsp"/>
+		
+		<put-attribute name="content" value="/WEB-INF/views/board/list.jsp"/>
+		<!-- 이게 중심이 되는 부분. 저 board 안에 회원가입이 들 수도, 게시판이 들어갈 수도 있는것. -->
+		
+		<put-attribute name="foot" value="/WEB-INF/views/foot.jsp"/>
+	</definition>
+	
+	<definition name=".main.*.*" extends=".main.layout">
+	<!-- 메인레이아웃을 상속받아서 써라 -->
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+		<!-- *.*이 {1},{2}로 넘어감 -->
+	</definition>
+	
+</tiles-definitions>   

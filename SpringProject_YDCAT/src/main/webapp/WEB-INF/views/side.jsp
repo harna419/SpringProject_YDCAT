@@ -5,11 +5,34 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
+	<style type="text/css">
+	.box{
+	border-bottom:1px solid #D97A73;
+	border-top:1px solid #D97A73;
+	border-left:1px solid #D97A73;
+	border-right:1px solid #D97A73;
+	}
+	</style>
 	</head>
 	
 	<body>
-	<h4 align="center">
-	사이드
-	</h4>
+	<br>
+	<table width="105">
+	<tr>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/asdf/list.do">&nbsp;&nbsp; 글목록</a></td>
+	</tr>
+
+	<tr><td height="10"></td></tr>
+
+	<tr>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/asdf/login.do">&nbsp;&nbsp; 로그인</a></td>
+	</tr>
+
+	</table>
+	
+	<br>
+	<br><br>
+
+	
 	</body>
 </html>

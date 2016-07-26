@@ -48,32 +48,32 @@
 	</head>
 	
 	<body>
-		<h2>글쓰기폼</h2>
+		<h2>수정폼</h2>
 		
 		
-		<form method="post" action="write.do" onsubmit="return writeFormCheck()">
+		<form method="post" action="updatePro.do" onsubmit="return writeFormCheck()">
 		<table bgcolor="#F2E3DB">
 		<tr>
 			<td align="right" colspan="2" class="line"><a href="list.do">리스트</a></td>
 			
 		<tr>
 			<th width="70" bgcolor="#D97A73">글쓴이</th>
-			<td class="line"><input type="text" id="writer" name="writer" size="10"></td>
+			<td class="line"><input type="text" id="writer" name="writer" size="10" value=${boardDto.writer }></td>
 		</tr>
 		
 		<tr>
 			<th bgcolor="#D97A73">글제목</th>
-			<td class="line"><input type="text" id="subject" name="subject" size="30"></td>
+			<td class="line"><input type="text" id="subject" name="subject" size="30" value=${boardDto.subject }></td>
 		</tr>
 		
 		<tr>
 			<th bgcolor="#D97A73">이메일</th>
-			<td class="line"><input type="text" id="email" name="email" size="30"></td>
+			<td class="line"><input type="text" id="email" name="email" size="30" value=${boardDto.email }></td>
 		</tr>
 		
 		<tr>
 			<th bgcolor="#D97A73">글내용</th>
-			<td class="line"><textarea name="content" id="content" cols="40" rows="13"></textarea></td>
+			<td class="line"><textarea name="content" id="content" cols="40" rows="13">${boardDto.content}</textarea></td>
 		</tr>
 		
 		<tr>
@@ -85,6 +85,7 @@
 			<td colspan="2" align="center">
 			<input type="submit" value="글등록">
 			<input type="reset" value="리셋">
+			<input type="hidden" id="num" name="num" value="${boardDto.num }"/>
 		</tr>
 		
 		

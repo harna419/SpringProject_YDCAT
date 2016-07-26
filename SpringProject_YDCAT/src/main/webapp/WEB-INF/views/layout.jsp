@@ -8,22 +8,22 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 	<style type="text/css">
-	table{
-	width:600; min-width: 600px; border-collapse:collapse;
-	}
+	.bottom{border-bottom:1px solid lightgray}
+	.right{border-right:1px solid lightgray}
+	.top{border-top:1px solid lightgray}
 	</style>
 	</head>
 	
 	<body>
-	<table align="center" border="1">
+	<table>
 	<tr>
-		<td colspan="2" height="70">
+		<td colspan="2" height="200" align="right" class="bottom">
 			<tiles:insertAttribute name="header"/> <!-- header.jsp -->
 		</td>
 	</tr>
 	
 	<tr>
-		<td width="100" height="400">
+		<td width="120" height="400" align="center" valign="top" class="right">
 			<tiles:insertAttribute name="side"/> <!-- side.jsp -->
 		</td>
 		<td valign="top">
@@ -32,10 +32,11 @@
 	</tr>
 	
 	<tr>
-		<td colspan="2" height="70">
+		<td colspan="2" height="70" align="center" valign="bottom" class="top">
 			<tiles:insertAttribute name="foot"/> <!-- foot.jsp -->
 		</td>
 	</tr>
 	</table>
 	</body>
 </html>
+

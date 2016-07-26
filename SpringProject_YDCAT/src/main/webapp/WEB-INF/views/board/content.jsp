@@ -1,67 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Board2 예제 글내용 보기 </title>
-<style type="text/css">
- table{
-  width:70%;
-  line-height: 40px;
- }
-</style>
-</head>
-<body>
-    <h2>글내용보기</h2>
-    <table align="center" width="800">
-      <tr>
-        <td height="40px" align="center">
-          <a href="edit.do?num=${boardDto.num }">글수정</a>&nbsp;
-          <a href="delete.do?num=${boardDto.num }">글삭제</a>	&nbsp;
-          <a href="reply.do?num=${boardDto.num }&flag=1">답글 쓰기</a>	&nbsp;
-          <a href="WriteForm.do?flag=0">글쓰기</a>&nbsp;
-          <a href="list.do">리스트</a>
-        </td>
-      </tr>
-    </table>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+		
+	<style type="text/css">
+	A:link {text-decoration:none;color:#696969}
+	A:hover{text-decoration:yes;color:#66CCFF}
+	.line{border-bottom:1px solid #D97A73}
+	TABLE{font-size:9pt;}
+	tr{	line-height: 30px}
+	</style>
 	
-	<table border="10" bgColor="margenta">
+	</head>
 	
-	  <tr height="40px">
-        <td>글쓴이</td>
-        <td>${boardDto.writer}</td>
-      </tr>
-      
-      <tr height="40px">
-        <td>글제목</td>
-        <td>${boardDto.subject}</td>
-      </tr>
-	 
-	 <tr>
-        <td>이메일</td>
-        <td>${boardDto.email}</td>
-      </tr>
-      <tr>
-        <td>글내용</td>
-        <td><pre>${boardDto.content}</pre></td>
-      </tr>
-      
-      <tr>
-        <td>날짜</td>
-        <td>
-          <%-- <fmt:formatDate value="${boardDto.wdate}" type="date" dateStyle="default"/> --%>
-          <fmt:formatDate value="${boardDto.wdate}" pattern="yyyy년 MM월 dd일"/>
-        </td>
-      </tr>
-      
-	  <tr>
-        <td>조회수</td>
-        <td>${boardDto.readcount}</td>
-      </tr>
+	<body>
+	<h2>글 내용보기</h2>
+	
+	<table width="500" bgcolor="#F2E3DB">
+	<tr>
+		<td height="40px" align="center" colspan="4" class="line">
+		<a href="update.do?num=${boardDto.num }">글수정</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="delete.do?num=${boardDto.num }">글삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="writeForm.do">새글 쓰기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="replyForm.do?num=${boardDto.num }">답글 쓰기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="list.do">리스트</a>&nbsp;
+	</tr>
+	
+	<tr height="40px">
+		<th width="90" bgcolor="#D97A73">글쓴이</th>
+		<td width="150" class="line">${boardDto.writer }</td>
+		<th width="90" bgcolor="#D97A73">ip</th>
+		<td class="line">${boardDto.ip}</td>
+	</tr>
+	
+	<tr height="40px">
+		<th bgcolor="#D97A73">글제목</th>
+		<td class="line" colspan="3">${boardDto.subject}</td>
+	</tr>
+	
+	<tr height="40px">
+		<th bgcolor="#D97A73">이메일</th>
+		<td class="line" colspan="3">${boardDto.email}</td>
+	</tr>
+	
+	<tr height="100px">
+		<th bgcolor="#D97A73">글내용</th>
+		<td class="line" colspan="3">${boardDto.content}</td>
+	</tr>
+
+	<tr height="40px">
+		<th bgcolor="#D97A73">작성시간</th>
+		<td class="line" colspan="3">
+		<fmt:formatDate value="${boardDto.regdate }" pattern="yyyy. MM. dd hh:mm"/>
+		</td>
+	</tr>
+	
 	</table>
-</body>
+	
+	</body>
 </html>

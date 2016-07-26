@@ -8,7 +8,9 @@
 	</head>
 	
 	<body>
-	<h3 align="center">
-	헤드</h3>
+	<img src="/asdf/resources/book.jpg" width="900"><br>
+	<a href="/asdf/list.do">글목록</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/asdf/login.do">로그인</a>
 	</body>
 </html>
+

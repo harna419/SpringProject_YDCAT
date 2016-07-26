@@ -51,7 +51,7 @@
 		<h2>글쓰기폼</h2>
 		
 		
-		<form method="post" action="write.do" onsubmit="return writeFormCheck()">
+		<form method="post" action="reply.do" onsubmit="return writeFormCheck()">
 		<table bgcolor="#F2E3DB">
 		<tr>
 			<td align="right" colspan="2" class="line"><a href="list.do">리스트</a></td>
@@ -63,7 +63,7 @@
 		
 		<tr>
 			<th bgcolor="#D97A73">글제목</th>
-			<td class="line"><input type="text" id="subject" name="subject" size="30"></td>
+			<td class="line"><input type="text" id="subject" name="subject" size="30" value="[답글] "></td>
 		</tr>
 		
 		<tr>
@@ -85,6 +85,7 @@
 			<td colspan="2" align="center">
 			<input type="submit" value="글등록">
 			<input type="reset" value="리셋">
+			<input type="hidden" id="num" name="num" value="<%=request.getParameter("num")%>">
 		</tr>
 		
 		

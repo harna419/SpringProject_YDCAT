@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 <<<<<<< HEAD
     <mappers>
-         <mapper resource="/mybatis/board.xml"/>
-      	 <mapper resource="/mybatis/member.xml"/>
+          <mapper resource="/mybatis/board.xml"/>
+      
      </mappers>
 =======
 	<mappers>

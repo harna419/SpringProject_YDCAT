@@ -19,13 +19,13 @@
 	<br>
 	<table width="105">
 	<tr>
-		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/asdf/list.do">&nbsp;&nbsp; 글목록</a></td>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/list.do">&nbsp;&nbsp; 글목록</a></td>
 	</tr>
 
 	<tr><td height="10"></td></tr>
 
 	<tr>
-		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/asdf/login.do">&nbsp;&nbsp; 로그인</a></td>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/login.do">&nbsp;&nbsp; 로그인</a></td>
 	</tr>
 
 	</table>

@@ -15,11 +15,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="countNum" resultType="int">
 		select count(*) countNum from board
 	</select>
+<<<<<<< HEAD
 	
 	<!-- 글검색? -->
 	<!-- <select id="select_search" resultType="java.util.HashMap" parameterType=""> 
 	select * from test_board where ${keyField} like '%${keyWord}%' order by ref asc 
 	</select>  -->
+=======
+>>>>>>> origin/shu-ri
 
    <insert id="insertBoard" parameterType="model.board.BoardDto">
 		insert into

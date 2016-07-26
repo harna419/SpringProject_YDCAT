@@ -42,7 +42,11 @@
 	
 	<tr>
 		<td align="center" bgcolor="lightgray">
-		<b>${memberDto.name }</b>님, 저희 홈에 오신것을 환영합니다<br>
+		
+		
+		 
+		 <b><%=session.getAttribute("loginId")%> 세션 아이디인가?</b>
+		 
 		</td>
 	</tr>
 	

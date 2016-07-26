@@ -80,18 +80,12 @@
 		return false;
 		}
 		
-		if($("#passwd").val() == null || $("#passwd").val() == ""){ 
-			alert("passwd를 입력해주세요");
-		$("#passwd").val('').focus();
+		if($("#password").val() == null || $("#password").val() == ""){ 
+			alert("password를 입력해주세요");
+		$("#password").val('').focus();
 		return false;
 		}
-		
-		if($("#name").val() == null || $("#name").val() == ""){ 
-			alert("이름을 입력해주세요");
-		$("#name").val('').focus();
-		return false;
-		}
-		
+				
 		if($("#jumin1").val() == null || $("#jumin1").val() == ""){ 
 			alert("주민등록번호 앞자리를 입력해주세요");
 		$("#jumin1").val('').focus();
@@ -127,15 +121,9 @@
 	<tr>
 		<td bgcolor="#EAEAEA">&nbsp;&nbsp;&nbsp;&nbsp;비밀번호</td>
 		<td width="7"></td>
-		<td><input type="text" name="passwd" id="passwd" size="20"></td>
+		<td><input type="text" name="password" id="password" size="20"></td>
 	</tr>
-
-	<tr>
-		<td bgcolor="#EAEAEA">&nbsp;&nbsp;&nbsp;&nbsp;이름</td>
-		<td width="7"></td>
-		<td><input type="text" name="name" id="name" size="20"></td>
-	</tr>
-
+	
 	<tr>
 		<td bgcolor="#EAEAEA">&nbsp;&nbsp;&nbsp;&nbsp;주민등록번호</td>
 		<td width="7"></td>
@@ -144,9 +132,16 @@
 	</tr>
 
 	<tr>
-		<td bgcolor="#EAEAEA">&nbsp;&nbsp;&nbsp;&nbsp;email</td>
+		<td bgcolor="#EAEAEA">&nbsp;&nbsp;&nbsp;&nbsp;직업</td>
 		<td width="7"></td>
-		<td><input type="text" name="email" id="email" size="30"></td>
+		<td><select name="job">
+			<option value="0">선택하세요</option>
+			<option value="회사원">회사원</option>
+			<option value="연구전문직">연구전문직</option>
+			<option value="교수학생">교수학생</option>
+			<option value="문화예술종사">문화예술종사</option>
+			<option value="백수">백수</option>
+		</select></td>
 	</tr>
 
 	<tr>
@@ -170,24 +165,17 @@
 	</tr>
 
 	<tr>
-		<td bgcolor="#EAEAEA">&nbsp;&nbsp;&nbsp;&nbsp;직업</td>
+		<td bgcolor="#EAEAEA">&nbsp;&nbsp;&nbsp;&nbsp;email</td>
 		<td width="7"></td>
-		<td><select name="job">
-			<option value="0">선택하세요</option>
-			<option value="회사원">회사원</option>
-			<option value="연구전문직">연구전문직</option>
-			<option value="교수학생">교수학생</option>
-			<option value="문화예술종사">문화예술종사</option>
-			<option value="백수">백수</option>
-		</select></td>
-	</tr>
-
-	<tr>
-		<td bgcolor="#EAEAEA">&nbsp;&nbsp;&nbsp;&nbsp;blog</td>
-		<td width="7"></td>
-		<td><input type="text" name="blog" id="blog" size="40"></td>
+		<td><input type="text" name="email" id="email" size="30"></td>
 	</tr>
 	
+	<tr>
+		<td bgcolor="#EAEAEA">&nbsp;&nbsp;&nbsp;&nbsp;phone</td>
+		<td width="7"></td>
+		<td><input type="text" name="phone" id="phone" size="30"></td>
+	</tr>
+		
 	<tr>
 		<td colspan="3" align="center" height="50">
 		<input type="submit" value="Join" class="but">&nbsp;&nbsp;

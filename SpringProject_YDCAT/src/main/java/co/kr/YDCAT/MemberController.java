@@ -9,6 +9,7 @@ import java.util.Locale;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,9 +56,11 @@ public class MemberController {
 	
 	//회원가입
 	@RequestMapping(value="/insertPro.do", method=RequestMethod.POST)
-	public String memberInsert(@ModelAttribute("memberDto") MemberDto memberDto, String num1, String num2, String address, String details)
+	public String memberInsert(@ModelAttribute("memberDto") MemberDto memberDto,String jumin1, String jumin2, String num1, String num2, String address, String details)
 		throws NamingException, IOException {
-		memberDto.setAddr(address+details);
+		
+		memberDto.setJumin(jumin1+"-"+jumin2);
+		memberDto.setAddr(num1+"-"+num2+"-"+address+"-"+details);
 				
 		sqlSession.insert("member.insertMember", memberDto);
 		
@@ -74,18 +77,29 @@ public class MemberController {
 	
 	//로그인
 	@RequestMapping(value="/loginPro.do", method=RequestMethod.POST)
-	public ModelAndView memberLogin(String id, String passwd)
+	public ModelAndView memberLogin(String id, String password, HttpServletRequest request)
 		throws NamingException, IOException{
 		
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
-		map.put("passwd", passwd);
+		map.put("password", password);
+		System.out.println("로그인ID "+id);
+		System.out.println("로그인PWD "+password);
 		
 		MemberDto memberDto = sqlSession.selectOne("member.selectLogin", map);
-				
+		System.out.println("로그인 시도!");		
 		if(memberDto==null){ //로그인 실패
+			System.out.println("로그인 실패");
 			return new ModelAndView(".main.member.loginSuccess", "memberDto", memberDto);
 		}
+		
+		//세션 생성
+		
+			HttpSession session= request.getSession();
+			session.setAttribute("loginId", id);
+			System.out.println("세션생성"+ id);
+		
+		
 		return new ModelAndView(".main.member.loginSuccess", "memberDto", memberDto);
 	}
 	

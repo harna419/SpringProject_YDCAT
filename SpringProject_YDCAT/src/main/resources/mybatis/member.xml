@@ -8,8 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- insert. 회원가입 -->
 	<insert id="insertMember" parameterType="model.member.MemberDto">
 		insert into
-		YD_member(no, id, password, jumin, job, addr, email, phone, regdate, curdate)
-		values(#{no}, #{id}, #{password}, #{jumin}, #{job}, #{addr}, #{email}, NOW(), NOW())
+		YD_member(id, password, jumin, job, addr, email, phone, regdate, curdate)
+		values(#{id}, #{password}, #{jumin}, #{job}, #{addr}, #{email},#{phone}, NOW(), NOW())
 	</insert>
 	
 	<!-- 로그인 -->

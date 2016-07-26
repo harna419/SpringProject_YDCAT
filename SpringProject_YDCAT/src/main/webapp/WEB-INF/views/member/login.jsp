@@ -15,8 +15,8 @@
 			return false;
 			}
 			
-			if($("#passwd").val() == null || $("#passwd").val() == ""){ 
-				alert("글쓴이를 입력해주세요");
+			if($("#password").val() == null || $("#password").val() == ""){ 
+				alert("로그인 암호를 입력해주세요");
 			$("#passwd").val('').focus();
 			return false;
 			}
@@ -51,7 +51,7 @@
 		<td width="200" align="right"><input type="text" name="id" id="id" size="20"></td>
 		<td width="20"></td>
 		<td width="60" align="center">PWD</td>
-		<td width="240"><input type="text" name="passwd" id="passwd" size="20"></td>
+		<td width="240"><input type="text" name="password" id="password" size="20"></td>
 	</tr>
 	
 	<tr>

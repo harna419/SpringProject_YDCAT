@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      where no=#{no}
    </update>
 
-	<update id="updateRef">
+	<update id="upRef">
      update YD_board set ref=ref+1
    </update>
 

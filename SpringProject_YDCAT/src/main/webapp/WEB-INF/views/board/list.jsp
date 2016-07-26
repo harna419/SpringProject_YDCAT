@@ -39,22 +39,22 @@
 	<c:forEach var="map" items="${list }">	
 		
 	<tr>
-		<td align="center" class="line">${map.num}</td>
+		<td align="center" class="line">${map.no}</td>
 		
 		<td class="line">&nbsp;&nbsp;	
-		<c:if test="${map.re_level>0 }">		
-		<img src="/asdf/resources/level.png" width="${map.re_level*25 }" height="15">
+		<c:if test="${map.ref_level>0 }">		
+		<img src="/asdf/resources/level.png" width="${map.ref_level*25 }" height="15">
 		<img src="/asdf/resources/point.png" height="15">
-		<a href="content.do?num=${map.num }">${map.subject }</a>
+		<a href="content.do?num=${map.no }">${map.subject }</a>
 		</c:if>
 		
-		<c:if test="${map.re_level==0 }">
-		<a href="content.do?num=${map.num }">${map.subject }</a>
+		<c:if test="${map.ref_level==0 }">
+		<a href="content.do?num=${map.no }">${map.subject }</a>
 		</c:if>
 		</td>
 				
 		
-		<td align="center" class="line">${map.writer }</td>
+		<td align="center" class="line">${map.id }</td>
 		<td align="center" class="line">
 		<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${map.regdate }"/></td>
 		<td align="center" class="line">${map.readcount }</td>

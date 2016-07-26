@@ -17,13 +17,7 @@
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 	function writeFormCheck(){
-		
-		if($("#writer").val() == null || $("#writer").val() == ""){ 
-			alert("글쓴이를 입력해주세요");
-		$("#writer").val('').focus();
-		return false;
-		}
-		
+				
 		if($("#subject").val() == null || $("#subject").val() == ""){
 			alert("글제목을 입력해주세요");
 		$("#subject").val('').focus();
@@ -34,14 +28,7 @@
 			alert("글내용을 입력해주세요");
 		$("#content").val('').focus();
 		return false;
-		}
-		
-		if($("#passwd").val() == null || $("#passwd").val() == ""){  
-			alert("비밀번호를 입력해주세요");
-		$("#passwd").val('').focus();
-		return false;
-		}
-		
+		}		
 		return true;
 	}//function
 	</script>
@@ -58,34 +45,25 @@
 			
 		<tr>
 			<th width="70" bgcolor="#D97A73">글쓴이</th>
-			<td class="line"><input type="text" id="writer" name="writer" size="10"></td>
+			<td class="line"><%=session.getAttribute("loginId")%></td>
 		</tr>
 		
 		<tr>
 			<th bgcolor="#D97A73">글제목</th>
 			<td class="line"><input type="text" id="subject" name="subject" size="30" value="[답글] "></td>
 		</tr>
-		
-		<tr>
-			<th bgcolor="#D97A73">이메일</th>
-			<td class="line"><input type="text" id="email" name="email" size="30"></td>
-		</tr>
-		
+						
 		<tr>
 			<th bgcolor="#D97A73">글내용</th>
 			<td class="line"><textarea name="content" id="content" cols="40" rows="13"></textarea></td>
 		</tr>
 		
-		<tr>
-			<th bgcolor="#D97A73">암호</th>
-			<td class="line"><input type="text" id="passwd" name="passwd" size="10"/></td>
-		</tr>
-		
+			
 		<tr>
 			<td colspan="2" align="center">
 			<input type="submit" value="글등록">
 			<input type="reset" value="리셋">
-			<input type="hidden" id="num" name="num" value="<%=request.getParameter("num")%>">
+			<input type="hidden" id="no" name="no" value="<%=request.getParameter("no")%>">
 		</tr>
 		
 		

@@ -8,23 +8,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- insert. 회원가입 -->
 	<insert id="insertMember" parameterType="model.member.MemberDto">
 		insert into
-		member(no, id, password, jumin, job, addr, email, phone, regdate, curdate)
+		YD_member(no, id, password, jumin, job, addr, email, phone, regdate, curdate)
 		values(#{no}, #{id}, #{password}, #{jumin}, #{job}, #{addr}, #{email}, NOW(), NOW())
 	</insert>
 	
 	<!-- 로그인 -->
 	<select id="selectLogin" parameterType="map" resultType="model.member.MemberDto">
-		select * from member where id=#{id} and password=#{password}
+		select * from YD_member where id=#{id} and password=#{password}
 	</select>
 	
 	<!-- id 중복체크, 회원 수정 폼에 표시할 자료 -->
 	<select id="selectOne" parameterType="String" resultType="model.member.MemberDto">
-		select * from member where id=#{id}
+		select * from YD_member where id=#{id}
 	</select>
 	
 	<!-- 회원 수정 -->
 	<update id="memberUpdate" parameterType="model.member.MemberDto">
-		update member
+		update YD_member
 		set password=#{password},
 		jumin=#{jumin},
 		job=#{job},
@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 회원 탈퇴 -->
 	<select id="memberDelete" parameterType="String">
-		delete from member where id=#{id}
+		delete from YD_member where id=#{id}
 	</select>
 
 </mapper>

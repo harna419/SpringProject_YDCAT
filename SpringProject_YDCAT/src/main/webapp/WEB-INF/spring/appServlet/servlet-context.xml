@@ -11,12 +11,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	<!-- AOP와 P 추가 -->
 
-	<!-- 스프링에서 자동적으로 스테레오 타입의 어노테이션을 등록해주는 역할 -->
-	<!-- use-default-filters="false" <- 이건 어노테이션을 자동으로 검색하지 않겠다는 뜻. 
-		이 태그에 해당하는 어노테이션만 검색해서 빈 등록할것. -->		
-	<context:component-scan base-package="first" use-default-filters="false">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	

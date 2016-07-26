@@ -4,14 +4,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 
 <configuration>
-<<<<<<< HEAD
     <mappers>
          <mapper resource="/mybatis/board.xml"/>
       	 <mapper resource="/mybatis/member.xml"/>
      </mappers>
-=======
-	<mappers>
-		<mapper resource="/mybatis/board.xml"/>
-	</mappers>
->>>>>>> origin/shu-ri
 </configuration>

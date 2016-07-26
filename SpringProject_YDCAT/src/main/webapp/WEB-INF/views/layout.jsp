@@ -15,7 +15,7 @@
 	</head>
 	
 	<body>
-	<table border="1">
+	<table align="center" border="1">
 	<tr>
 		<td colspan="2" height="70">
 			<tiles:insertAttribute name="header"/> <!-- header.jsp -->

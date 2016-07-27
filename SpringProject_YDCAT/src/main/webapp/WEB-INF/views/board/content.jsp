@@ -21,16 +21,27 @@
 	
 	<body>
 	<h2>글 내용보기</h2>
+
+	<c:set var="ses" value="${sessionScope.loginId}"/>
 	
 	<table width="500" bgcolor="#F2E3DB">
 	<tr>
 		<td height="40px" align="center" colspan="4" class="line">
+		<c:if test="${ses==boardDto.id }">
 		<a href="update.do?no=${boardDto.no }">글수정</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="delete.do?no=${boardDto.no }">글삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</c:if>
 		<a href="writeForm.do">새글 쓰기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="replyForm.do?no=${boardDto.no }">답글 쓰기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="list.do">리스트</a>&nbsp;
+		</td>
 	</tr>
+<!-- <tr>
+		<td>
+		${ses }<br>
+		${boardDto.id }
+		</td>
+	</tr> -->	
 	
 	<tr height="40px">
 		<th width="90" bgcolor="#D97A73">글쓴이</th>

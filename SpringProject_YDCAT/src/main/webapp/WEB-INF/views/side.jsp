@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -16,16 +18,38 @@
 	</head>
 	
 	<body>
+	
+	<c:set var="ses" value="${sessionScope.loginId}"/>
+	
 	<br>
 	<table width="105">
-	<tr>
-		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/list.do">&nbsp;&nbsp; 글목록</a></td>
-	</tr>
+
+	
+	<c:choose>		
+		<c:when test="${ses!=null}">
+		<tr>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/loginSuccess.do">&nbsp;&nbsp; 홈</a></td>
+		</tr>
+
+		<tr><td height="10"></td></tr>
+
+		<tr>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/editForm.do">&nbsp;&nbsp; 정보수정</a></td>
+		</tr>
+		</c:when>
+		
+		<c:otherwise>
+		<tr>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/login.do">&nbsp;&nbsp; 로그인</a></td>
+		</tr>
+		</c:otherwise>
+	</c:choose>	
+	
 
 	<tr><td height="10"></td></tr>
 
 	<tr>
-		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/login.do">&nbsp;&nbsp; 로그인</a></td>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/list.do">&nbsp;&nbsp; 글목록</a></td>
 	</tr>
 
 	</table>

@@ -84,9 +84,9 @@ public class BoardController {
 	
 	//content
 	@RequestMapping("/content.do")
-	public ModelAndView getOneBoard(int num){
-		sqlSession.update("board.readCount", new Integer(num)); //조회수
-		BoardDto boardDto = (BoardDto)sqlSession.selectOne("board.selectOne", num);
+	public ModelAndView getOneBoard(int no){
+		sqlSession.update("board.readCount", new Integer(no)); //조회수
+		BoardDto boardDto = (BoardDto)sqlSession.selectOne("board.selectOne", no);
 		
 		return new ModelAndView(".main.board.content", "boardDto", boardDto);
 	}//getOneBoard() end
@@ -101,13 +101,13 @@ public class BoardController {
 	
 	//DB에 답글쓰기 insert
 	@RequestMapping(value="/reply.do", method=RequestMethod.POST)
-	public String replyPro(@ModelAttribute("BoardDto") BoardDto boardDto, int num, HttpServletRequest request) 
+	public String replyPro(@ModelAttribute("BoardDto") BoardDto boardDto, int no, HttpServletRequest request) 
 		throws NamingException, IOException {
 		
 		String ip=request.getRemoteAddr(); //ip 구하고
 		boardDto.setIp(ip); ////ip 받아줌
 		
-		BoardDto boardDto2 = (BoardDto)sqlSession.selectOne("board.selectOne", new Integer(num));
+		BoardDto boardDto2 = (BoardDto)sqlSession.selectOne("board.selectOne", new Integer(no));
 		
 		//HashMap<String, Integer> place_ref = new HashMap<String, Integer>();
 		//place_ref.put("ref", new Integer(boardDto2.getRef()));
@@ -131,8 +131,8 @@ public class BoardController {
 	
 	//글수정폼
 	@RequestMapping("/update.do")
-	public ModelAndView userEdit(int num){
-		BoardDto boardDto = (BoardDto)sqlSession.selectOne("board.selectOne", num);
+	public ModelAndView userEdit(int no){
+		BoardDto boardDto = (BoardDto)sqlSession.selectOne("board.selectOne", no);
 		return new ModelAndView(".main.board.update", "boardDto", boardDto); //뷰.
 	}//userEdit() end
 	
@@ -150,8 +150,8 @@ public class BoardController {
 	
 	//글삭제
 	@RequestMapping("/delete.do")
-	public String deleteBoard(int num) throws NamingException, IOException {
-		sqlSession.delete("board.deleteBoard", num);
+	public String deleteBoard(int no) throws NamingException, IOException {
+		sqlSession.delete("board.deleteBoard", no);
 		return "redirect:list.do";
 	}//deleteBoard()
 	

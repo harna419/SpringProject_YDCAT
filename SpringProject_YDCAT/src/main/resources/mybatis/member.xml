@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		email=#{email},
 		phone=#{phone},
 		curdate=NOW()
-		where id=#{id}
+		where id=#{id} and no=#{no}
 	</update>
 	
 	<!-- 회원 탈퇴 -->

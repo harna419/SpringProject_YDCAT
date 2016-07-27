@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.StringTokenizer;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
@@ -74,6 +75,12 @@ public class MemberController {
 		return ".main.member.login";//뷰
 	}
 	
+	//홈화면
+	@RequestMapping("/loginSuccess.do")
+	public String loginHome(){
+		return ".main.member.loginSuccess";//뷰
+	}
+	
 	
 	//로그인
 	@RequestMapping(value="/loginPro.do", method=RequestMethod.POST)
@@ -112,23 +119,51 @@ public class MemberController {
 	
 	
 	//회원정보 수정 폼
-	@RequestMapping(value="/editForm.do", method=RequestMethod.POST)
-	public ModelAndView editForm(String id) throws NamingException, IOException {
+	@RequestMapping(value="/editForm.do", method=RequestMethod.GET)
+	public ModelAndView editForm(HttpServletRequest request) throws NamingException, IOException {
+		
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("loginId");
+		
 		MemberDto memberDto = sqlSession.selectOne("member.selectOne", id);
-		return new ModelAndView(".main.member.editForm", "memberDto", memberDto);
+		
+		StringTokenizer st = new StringTokenizer(memberDto.getAddr(),"-");
+		String num1 = st.nextToken();
+		String num2 = st.nextToken();
+		String address = st.nextToken();
+		String details = st.nextToken();
+		
+		StringTokenizer st2 = new StringTokenizer(memberDto.getJumin(),"-");
+		String jumin1 = st2.nextToken();
+		String jumin2 = st2.nextToken();
+		
+		ModelAndView addrContent = new ModelAndView();
+		
+		addrContent.setViewName(".main.member.editForm");
+		addrContent.addObject("memberDto",memberDto);
+		addrContent.addObject("jumin1", jumin1);
+		addrContent.addObject("jumin2", jumin2);
+		addrContent.addObject("num1", num1);
+		addrContent.addObject("num2", num2);
+		addrContent.addObject("address", address);
+		addrContent.addObject("details", details);
+		
+		//return new ModelAndView(".main.member.editForm", "memberDto", memberDto);
+		return addrContent;
 	}
 	
 	
 	//회원정보 수정
 	@RequestMapping(value="/editPro.do", method=RequestMethod.POST)
-	public String editPro(@ModelAttribute("MemberDto") MemberDto memberDto, String num1, String num2, String address, String details)
+	public String editPro(@ModelAttribute("memberDto") MemberDto memberDto,String jumin1, String jumin2, String num1, String num2, String address, String details)
 	throws NamingException, IOException {
 		
-		memberDto.setAddr(address+details);
+		memberDto.setJumin(jumin1+"-"+jumin2);
+		memberDto.setAddr(num1+"-"+num2+"-"+address+"-"+details);
 		
 		sqlSession.update("member.memberUpdate", memberDto);
 		
-		return ".main.member.login";
+		return ".main.member.loginSuccess";
 	}
 		
 	

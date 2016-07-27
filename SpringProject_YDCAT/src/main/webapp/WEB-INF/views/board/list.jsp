@@ -45,11 +45,11 @@
 		<c:if test="${map.ref_level>0 }">		
 		<img src="/asdf/resources/level.png" width="${map.ref_level*25 }" height="15">
 		<img src="/asdf/resources/point.png" height="15">
-		<a href="content.do?num=${map.no }">${map.subject }</a>
+		<a href="content.do?no=${map.no }">${map.subject }</a>
 		</c:if>
 		
 		<c:if test="${map.ref_level==0 }">
-		<a href="content.do?num=${map.no }">${map.subject }</a>
+		<a href="content.do?no=${map.no }">${map.subject }</a>
 		</c:if>
 		</td>
 				

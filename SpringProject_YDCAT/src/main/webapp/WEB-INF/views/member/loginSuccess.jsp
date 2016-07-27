@@ -45,7 +45,7 @@
 		
 		
 		 
-		 <b><%=session.getAttribute("loginId")%> 세션 아이디인가?</b>
+		 <b><%=session.getAttribute("loginId")%></b>
 		 
 		</td>
 	</tr>
@@ -69,8 +69,7 @@
 	</table>
 	
 	
-	<form method="post" name="updateForm">
-		<input type="hidden" id="id" name="id" value="${id }">
+	<form method="get" name="updateForm">
 	</form>
 	
 	<form method="post" name="deleteForm">

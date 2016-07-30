@@ -192,7 +192,7 @@ public class MemberController {
 			System.out.println("삭제 아이디: "+memberDto.getPassword());
 			
 			sqlSession.delete("member.memberDelete", memberDto);
-			return ".main.member.login";
+			return "member/logOut";
 		}
 	
 }//class

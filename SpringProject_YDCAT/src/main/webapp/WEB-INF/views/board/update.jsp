@@ -39,7 +39,7 @@
 		<h2>수정폼</h2>
 		
 		
-		<form method="post" action="updatePro.do" onsubmit="return writeFormCheck()">
+		<form method="post" action="updatePro.do" onsubmit="return writeFormCheck()" enctype="multipart/form-data">
 		<table bgcolor="#F2E3DB">
 		<tr>
 			<td align="right" colspan="2" class="line"><a href="list.do">리스트</a></td>
@@ -57,6 +57,15 @@
 		<tr>
 			<th bgcolor="#D97A73">글내용</th>
 			<td class="line"><textarea name="content" id="content" cols="40" rows="13">${boardDto.content}</textarea></td>
+		</tr>
+		
+		<tr height="50px">
+		<th bgcolor="#D97A73">첨부된 파일 : </th>
+		<td class="line" colspan="3">${boardDto.fileName}</td>
+		</tr>
+				
+		<tr>
+		<td><input type="file" name="uploadfile"></td>
 		</tr>
 				
 		<tr>

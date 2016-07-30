@@ -1,26 +1,22 @@
 package co.kr.YDCAT;
 
+import java.io.File;
 import java.io.IOException;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.multipart.MultipartFile;
 import model.board.BoardDto;
 
 import org.apache.ibatis.session.SqlSession;
@@ -34,7 +30,7 @@ public class BoardController {
 	
 	//글쓰기 폼
 	@RequestMapping("/writeForm.do")
-	public String writeForm(){
+	public String writeForm(HttpServletRequest request, HttpServletResponse response){
 		return ".main.board.writeForm"; //뷰.
 	}//writeForm()
 	
@@ -43,6 +39,27 @@ public class BoardController {
 	@RequestMapping(value="/write.do", method=RequestMethod.POST)
 	public String writePro(@ModelAttribute("BoardDto") BoardDto boardDto, HttpServletRequest request)
 		throws NamingException, IOException {
+		
+		MultipartFile uploadfile = boardDto.getUploadfile();
+	        
+		 if (uploadfile != null) {
+	            String fileName = uploadfile.getOriginalFilename();
+	            boardDto.setFileName(fileName);
+	            try {
+	                // 1. FileOutputStream 사용
+	                // byte[] fileData = file.getBytes();
+	                // FileOutputStream output = new FileOutputStream("C:/images/" + fileName);
+	                // output.write(fileData);
+	                 
+	                // 2. File 사용
+	            
+	                File file = new File("C:/images/" + fileName);
+	                uploadfile.transferTo(file);
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            } // try - catch
+	        } // if
+		
 		String ip=request.getRemoteAddr(); //ip 구하고
 		boardDto.setIp(ip); ////ip 받아줌
 		sqlSession.update("board.upRef"); //ref 값 증가		
@@ -86,7 +103,9 @@ public class BoardController {
 	//content
 	@RequestMapping("/content.do")
 	public ModelAndView getOneBoard(int no){
+		
 		sqlSession.update("board.readCount", new Integer(no)); //조회수
+		
 		BoardDto boardDto = (BoardDto)sqlSession.selectOne("board.selectOne", no);
 		
 		return new ModelAndView(".main.board.content", "boardDto", boardDto);
@@ -105,21 +124,26 @@ public class BoardController {
 	public String replyPro(@ModelAttribute("BoardDto") BoardDto boardDto, int no, HttpServletRequest request) 
 		throws NamingException, IOException {
 		
+		MultipartFile uploadfile = boardDto.getUploadfile();
+        
+		 if (uploadfile != null) {
+	            String fileName = uploadfile.getOriginalFilename();
+	            boardDto.setFileName(fileName);
+	            try {
+	                // 2. File 사용
+	            	
+	                File file = new File("C:/images/" + fileName);
+	                uploadfile.transferTo(file);
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            } // try - catch
+	        } // if
+		
 		String ip=request.getRemoteAddr(); //ip 구하고
 		boardDto.setIp(ip); ////ip 받아줌
 		
 		BoardDto boardDto2 = (BoardDto)sqlSession.selectOne("board.selectOne", new Integer(no));
-		
-		//HashMap<String, Integer> place_ref = new HashMap<String, Integer>();
-		//place_ref.put("ref", new Integer(boardDto2.getRef()));
-		//place_ref.put("ref_step", new Integer(boardDto2.getRef_step()));
-		
-		//System.out.println(boardDto2.getRef());
-		//System.out.println(boardDto2.getRef_step());
-		//System.out.println(boardDto2.getRef_level());
 			
-		//sqlSession.update("board.replyPos",place_ref);	
-				
 		boardDto.setRef(boardDto2.getRef());
 		boardDto.setRef_step(boardDto2.getRef_step()+1);
 		boardDto.setRef_level(boardDto2.getRef_level()+1);
@@ -144,6 +168,21 @@ public class BoardController {
 		throws NamingException, IOException{
 		//System.out.println("asdf");
 		//System.out.println(boardDto.getSubject());
+		MultipartFile uploadfile = boardDto.getUploadfile();
+        
+		 if (uploadfile != null) {
+	            String fileName = uploadfile.getOriginalFilename();
+	            boardDto.setFileName(fileName);
+	            try {
+	                // 2. File 사용
+	            	
+	                File file = new File("C:/images/" + fileName);
+	                uploadfile.transferTo(file);
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            } // try - catch
+	        } // if
+		
 		sqlSession.update("board.updateBoard", boardDto);
 		return "redirect:list.do";
 	}//editBoard() end

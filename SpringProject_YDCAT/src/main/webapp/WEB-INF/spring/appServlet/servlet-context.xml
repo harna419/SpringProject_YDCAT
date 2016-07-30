@@ -28,7 +28,18 @@
 		         </beans:list>
 		      </beans:property>
 		</beans:bean>
-
+	
+		
+		<!-- MultipartResolver 설정 -->
+	    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">    
+	     
+	    </beans:bean>
+		
+		<!-- 다운로드 뷰 설정 -->
+		<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		      	<beans:property name="order" value="0"/>
+		</beans:bean>
+	   
 	   <beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 	      <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
 	      <beans:property name="viewNames" value=".*"/>
@@ -47,4 +58,9 @@
 	<!-- AOP -->
 	 <aop:aspectj-autoproxy/>
 	 <beans:bean class="co.kr.YDCAT.LoggingAdvice"/>
+	
+	
+	<beans:bean id="download" class="co.kr.YDCAT.DownloadView"></beans:bean>
+	
 </beans:beans>
+

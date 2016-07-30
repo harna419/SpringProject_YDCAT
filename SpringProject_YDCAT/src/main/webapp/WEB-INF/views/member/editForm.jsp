@@ -55,6 +55,8 @@
 		$("#jumin2").val('').focus();
 		return false;
 		}
+		
+		return true;
 	}
 	</script>
 	</head>

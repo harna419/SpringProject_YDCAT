@@ -63,12 +63,20 @@
 		<td class="line" colspan="3">${boardDto.content}</td>
 	</tr>
 
+	<tr height="50px">
+		<th bgcolor="#D97A73">첨부된 파일 : </th>
+		<td class="line" colspan="3"><a href="download.do?path=C:/images/&fileName=${boardDto.fileName}">${boardDto.fileName}</a></td>
+	</tr>
+
 	<tr height="40px">
 		<th bgcolor="#D97A73">작성시간</th>
 		<td class="line" colspan="3">
 		<fmt:formatDate value="${boardDto.regdate }" pattern="yyyy. MM. dd hh:mm"/>
 		</td>
 	</tr>
+	
+	
+	
 	
 	</table>
 	

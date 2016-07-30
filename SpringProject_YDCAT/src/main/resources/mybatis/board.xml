@@ -27,8 +27,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
    <insert id="insertBoard" parameterType="model.board.BoardDto">
 		insert into
-		YD_board (id, subject, content, regdate, readcount, ref, ref_step, ref_level, ip)
-		values(#{id},#{subject},#{content},NOW(),#{readcount}, #{ref}, #{ref_step},#{ref_level},#{ip})
+		YD_board (id, subject, content, regdate, readcount, ref, ref_step, ref_level, fileName, ip)
+		values(#{id},#{subject},#{content},NOW(),#{readcount}, #{ref}, #{ref_step},#{ref_level},#{fileName} ,#{ip})
 	</insert>
 
    <update id="readCount" parameterType="int">
@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
    <update id="updateBoard" parameterType="model.board.BoardDto">
 		update YD_board set
-		subject=#{subject}, content=#{content}
+		subject=#{subject}, content=#{content}, fileName=#{fileName}
 		where no=#{no}
 	</update>
    

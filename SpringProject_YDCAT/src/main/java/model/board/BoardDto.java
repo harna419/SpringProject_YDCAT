@@ -1,6 +1,9 @@
 package model.board;
 
+import java.io.File;
 import java.util.Date;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class BoardDto {
 	
@@ -16,6 +19,17 @@ public class BoardDto {
 	private int ref_step;
 	private int ref_level;
 	
+	private String fileName;
+	private MultipartFile uploadfile;
+	
+	public MultipartFile getUploadfile() {
+		return uploadfile;
+	}
+
+	public void setUploadfile(MultipartFile uploadfile) {
+		this.uploadfile = uploadfile;
+	}
+
 	private String ip;
 
 	
@@ -98,6 +112,14 @@ public class BoardDto {
 
 	public void setIp(String ip) {
 		this.ip = ip;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 		
 }//class end

@@ -171,6 +171,8 @@ public class MemberController {
 		memberDto.setJumin(jumin1+"-"+jumin2);
 		memberDto.setAddr(num1+"-"+num2+"-"+address+"-"+details);
 		
+		System.out.println("memberDto: "+ memberDto);
+		
 		sqlSession.update("member.memberUpdate", memberDto);
 		
 		return ".main.member.loginSuccess";

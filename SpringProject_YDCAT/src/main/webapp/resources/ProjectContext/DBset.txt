@@ -18,6 +18,8 @@ ref int not null,
 ref_step smallint not null,
 ref_level smallint not null,
 
+fileName varchar(50),
+
 ip varchar(20),
 
 PRIMARY KEY(no)
@@ -39,4 +41,21 @@ phone varchar(50),
 regdate DATETIME,
 curdate DATETIME,
 PRIMARY KEY(no, id)
+);
+
+
+============================================
+이부분은 쓰지 않기로 함! ///7.30
+drop table yd_file;
+CREATE TABLE Yd_FILE
+(
+  no   int not null AUTO_INCREMENT,
+  BOARD_no int not null,
+  ORIGINAL_FILE_NAME VARCHAR(100) NOT NULL,
+  STORED_FILE_NAME VARCHAR(100) NOT NULL,
+  FILE_SIZE int,
+  CREA_DTM  DATEtime DEFAULT now() NOT NULL,
+  CREA_ID   VARCHAR(30) NOT NULL,
+  DEL_GB    VARCHAR(5) DEFAULT 'N' NOT NULL,
+  PRIMARY KEY (no)
 );

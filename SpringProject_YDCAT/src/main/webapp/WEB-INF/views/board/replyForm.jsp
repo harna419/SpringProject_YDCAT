@@ -38,7 +38,7 @@
 		<h2>글쓰기폼</h2>
 		
 		
-		<form method="post" action="reply.do" onsubmit="return writeFormCheck()">
+		<form method="post" action="reply.do" onsubmit="return writeFormCheck()" enctype="multipart/form-data">
 		<table bgcolor="#F2E3DB">
 		<tr>
 			<td align="right" colspan="2" class="line"><a href="list.do">리스트</a></td>
@@ -58,12 +58,16 @@
 			<td class="line"><textarea name="content" id="content" cols="40" rows="13"></textarea></td>
 		</tr>
 		
+		<tr>
+		<td><input type="file" name="uploadfile"></td>
+		</tr>
 			
 		<tr>
 			<td colspan="2" align="center">
 			<input type="submit" value="글등록">
 			<input type="reset" value="리셋">
 			<input type="hidden" id="no" name="no" value="<%=request.getParameter("no")%>">
+			<input type="hidden" name="id" value="<%=session.getAttribute("loginId")%>">
 		</tr>
 		
 		

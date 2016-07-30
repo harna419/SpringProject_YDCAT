@@ -6,17 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/JavaScript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
-<style type="text/css">
-	A:link {text-decoration:none;color:#696969; font-size:9pt;}
-	A:hover{text-decoration:yes;color:#66CCFF; font-size:9pt;}
-	TABLE{font-size:10pt;}
-	tr{	line-height: 35px}
-	.but{
-	font-size:9pt;
-	background-color: white;
-	border: 1px solid gray ;
-	}
-	</style>
+<link href="/YDCAT/resources/style.css" rel="stylesheet" type="text/css">
 	<script>
 	function insertcheck(){
 				
@@ -32,17 +22,18 @@
 </head>
 <body>
 	<form method="post" name="writeForm" action="memberDelete.do" onsubmit="return insertcheck()">
+	<br><br>
 	<table width="550" align="center">
 	<tr>
-	<td bgcolor="#EAEAEA">회원 탈퇴를 원하시면 패스워드를 입력하세요.</td>
+	<td bgcolor="#EAEAEA" align="center">회원 탈퇴를 원하시면 패스워드를 입력하세요.</td>
 	</tr>
 	<tr>
-	<td><input type="password" id="password" name="password"></td>
+	<td align="center"><input type="password" id="password" name="password"></td>
 	</tr>
 	<tr>
-	<td>
-	<input type="submit" value="탈퇴">&nbsp;&nbsp;
-	<input type="button" value="취소" onclick="history.go(-1)">
+	<td align="center">
+	<input type="submit" value="탈퇴" class="but">&nbsp;&nbsp;
+	<input type="button" value="취소" onclick="history.go(-1)" class="but">
 	<input type="hidden" name="id" value="<%=session.getAttribute("loginId")%>">
 	</td>
 	</tr>

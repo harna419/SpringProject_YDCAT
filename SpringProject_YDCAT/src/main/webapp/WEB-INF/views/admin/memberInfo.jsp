@@ -17,6 +17,38 @@
 	TABLE{font-size:9pt;}
 	tr{	line-height: 30px}
 	</style>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/YDCAT/resources/jquery.battatech.excelexport.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#btnExport").click(function () {
+        $("#excel_body").battatech_excelexport({
+            containerid: "excel_body"
+, datatype: 'table'
+        });
+    });
+});
+
+$(function(){
+	$(".location").hide()
+	
+	$("#addExcel").on('click',function(){
+		//alert("asdf");
+		$("#addExcel").hide()
+		$(".location").show()
+	})
+})
+
+function writeFormCheck(){
+	if($("#location").val() == null || $("#location").val() == ""){
+		alert("경로를 등록해주세요");
+	$("#location").val('').focus();
+	return false;
+	}
+	return true;
+}	
+</script>
+	
 
 </head>
 <body>
@@ -25,7 +57,7 @@
 엑셀 삽입/출력 예정
 회원 정보를 리스트로 뽑아내기-->
 
-<table bgcolor="#F2E3DB" align="center">
+<table bgcolor="#F2E3DB" align="center" id="excel_body">
 	
 	<tr bgcolor="#D97A73">
 		<th width="80">회원번호</th>
@@ -62,7 +94,29 @@
 	</tr>
 		
 	</c:forEach>
-
+	
+	<tr>
+		<td colspan="10" align="center">
+		<c:forEach var="pageNum" begin="1" end="${totalPage }" step="1">
+		[<a href="memberInfo.do?pageNum=${pageNum }">${pageNum }</a>]	&nbsp;
+		</c:forEach>
+		</td>
+	</tr>
+	
 </table>
+
+<table>
+	<tr>
+		<td>
+		<form method="post" action="insertmember.do" onsubmit="return writeFormCheck()">
+		<input type="button" id="btnExport" value="엑셀에 저장">
+		<input type="button" id="addExcel" value="엑셀파일 추가">
+		<input type="text" id="location" class="location" name="location" size="20">
+		<input type="submit" class="location" value="파일 등록">
+		</form>
+		</td>
+	</tr>
+</table>
+
 </body>
 </html>

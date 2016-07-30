@@ -5,13 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	A:link {text-decoration:none;color:#696969}
-	A:hover{text-decoration:yes;color:#66CCFF}
-	.line{border-bottom:1px solid #D97A73}
-	TABLE{font-size:9pt;}
-	tr{	line-height: 30px}
-	</style>
+	<link href="/YDCAT/resources/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <br>

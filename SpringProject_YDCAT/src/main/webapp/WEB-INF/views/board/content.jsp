@@ -9,22 +9,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 		
-	<style type="text/css">
-	A:link {text-decoration:none;color:#696969}
-	A:hover{text-decoration:yes;color:#66CCFF}
-	.line{border-bottom:1px solid #D97A73}
-	TABLE{font-size:9pt;}
-	tr{	line-height: 30px}
-	</style>
-	
+	<link href="/YDCAT/resources/style.css" rel="stylesheet" type="text/css">
+
 	</head>
 	
 	<body>
-	<h2>글 내용보기</h2>
+	<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;글 내용보기</h2>
 
 	<c:set var="ses" value="${sessionScope.loginId}"/>
 	
-	<table width="500" bgcolor="#F2E3DB">
+	<table width="500" align="center">
 	<tr>
 		<td height="40px" align="center" colspan="4" class="line">
 		<c:if test="${ses==boardDto.id }">
@@ -44,32 +38,32 @@
 	</tr> -->	
 	
 	<tr height="40px">
-		<th width="90" bgcolor="#D97A73">글쓴이</th>
+		<th width="90" bgcolor="#CFE1E8">글쓴이</th>
 		<td width="150" class="line">${boardDto.id }</td>
 		
-		<th width="90" bgcolor="#D97A73">ip</th>
+		<th width="90" bgcolor="#CFE1E8">ip</th>
 		<td class="line">${boardDto.ip}</td>
 	</tr>
 	
 	<tr height="40px">
-		<th bgcolor="#D97A73">글제목</th>
+		<th bgcolor="#CFE1E8">글제목</th>
 		<td class="line" colspan="3">${boardDto.subject}</td>
 	</tr>
 	
 	
 	
 	<tr height="100px">
-		<th bgcolor="#D97A73">글내용</th>
+		<th bgcolor="#CFE1E8">글내용</th>
 		<td class="line" colspan="3">${boardDto.content}</td>
 	</tr>
 
 	<tr height="50px">
-		<th bgcolor="#D97A73">첨부된 파일 : </th>
+		<th bgcolor="#CFE1E8">첨부된 파일 </th>
 		<td class="line" colspan="3"><a href="download.do?path=C:/images/&fileName=${boardDto.fileName}">${boardDto.fileName}</a></td>
 	</tr>
 
 	<tr height="40px">
-		<th bgcolor="#D97A73">작성시간</th>
+		<th bgcolor="#CFE1E8">작성시간</th>
 		<td class="line" colspan="3">
 		<fmt:formatDate value="${boardDto.regdate }" pattern="yyyy. MM. dd hh:mm"/>
 		</td>

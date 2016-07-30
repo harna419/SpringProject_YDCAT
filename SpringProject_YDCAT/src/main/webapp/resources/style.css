@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+A:link {text-decoration:none;color:#696969; font-size:9pt;}
+A:hover{text-decoration:yes;color:#66CCFF; font-size:9pt;}
+
+TABLE{font-size:9pt;}
+tr{	line-height: 35px}
+
+.line{border-bottom:1px solid #CFE1E8}
+
+.but{
+font-size:9pt;
+background-color: white;
+border: 1px solid gray ;
+}

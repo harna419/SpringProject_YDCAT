@@ -6,12 +6,7 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
-	<style type="text/css">
-	A:link {text-decoration:none;color:#696969; font-size:9pt;}
-	A:hover{text-decoration:yes;color:#66CCFF; font-size:9pt;}
-	tr{	line-height: 30px; font-size:9pt;}
-	.line{border-bottom:1px solid lightgray}
-	</style>
+	<link href="/YDCAT/resources/style.css" rel="stylesheet" type="text/css">
 	<script>
 	function updateUser(){
 		//alert("updateUser(): "+document.updateForm.id.value);
@@ -36,12 +31,12 @@
 	<br>
 	<table width="600" align="center">
 	<tr>
-		<td height="320" align="center"><img src="/asdf/resources/blue.jpg" width="400">
+		<td height="400" colspan="5" align="center"><img src="/YDCAT/resources/7.jpg">
 		</td>
 	</tr>
 	
 	<tr>
-		<td align="center" bgcolor="lightgray">
+		<td align="center" bgcolor="#DAEBEA">
 		
 		
 		 

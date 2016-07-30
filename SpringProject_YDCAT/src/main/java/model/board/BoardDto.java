@@ -1,6 +1,5 @@
 package model.board;
 
-import java.io.File;
 import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +17,20 @@ public class BoardDto {
 	private int ref;
 	private int ref_step;
 	private int ref_level;
+	
+	private int startNum;
+	
+	public int getStartNum() {
+		return startNum;
+	}
+
+	public void setStartNum(int startNum) {
+		this.startNum = startNum;
+	}
+
+	private String searchField;
+	private String searchValue;
+	
 	
 	private String fileName;
 	private MultipartFile uploadfile;
@@ -120,6 +133,22 @@ public class BoardDto {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public String getSearchField() {
+		return searchField;
+	}
+
+	public void setSearchField(String searchField) {
+		this.searchField = searchField;
+	}
+
+	public String getSearchValue() {
+		return searchValue;
+	}
+
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
 	}
 		
 }//class end

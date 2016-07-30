@@ -195,4 +195,35 @@ public class BoardController {
 		return "redirect:list.do";
 	}//deleteBoard()
 	
+		
+		//글 검색
+		@RequestMapping(value="/search.do", method=RequestMethod.POST)
+		public ModelAndView searchBoard(Integer pageNum, @ModelAttribute("BoardDto") BoardDto boardDto){
+			
+			System.out.println("서치 메서드 실행");
+			System.out.println("필드: "+boardDto.getSearchField());
+			System.out.println("검색: "+boardDto.getSearchValue());
+			
+			
+			//int page_Num = Integer.parseInt(pageNum);
+			if(pageNum==null){ pageNum=1; }
+			int startNum = (pageNum-1)*10; 
+			boardDto.setStartNum(startNum);
+			
+			List<HashMap<String, String>> list = sqlSession.selectList("board.selectSearch", boardDto);
+					
+			int totalList= list.size(); //총 글 갯수
+			System.out.println("검색된 글 갯수"+totalList);
+		
+			int totalPage = (totalList/10)+1; //전체 페이지수
+			
+			ModelAndView listModel = new ModelAndView();
+			
+			listModel.setViewName(".main.board.list");
+			listModel.addObject("list", list);
+			listModel.addObject("totalPage", totalPage);
+			
+			return listModel;
+		}//deleteBoard()	
+		
 }//class

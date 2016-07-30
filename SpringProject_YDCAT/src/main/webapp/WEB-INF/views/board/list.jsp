@@ -70,6 +70,19 @@
 		</td>
 	</tr>
 	
+	<tr>
+	<td colspan="5" align="center">
+	<form method="post" action="search.do" name="searchForm">
+	<select name="searchField">
+			<option value="id">작성자</option>
+			<option value="subject">글 제목</option>
+			<option value="content">글 내용</option>
+	</select>
+	<input type="text" name="searchValue">&nbsp;&nbsp;<input type="submit" value="검색">
+	</form>
+	</td>
+	</tr>
+	
 	</table>
 	<br>
 	

@@ -55,4 +55,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	  delete from YD_board
 	  where no=#{no}
 	</delete>
+	
+	<select id="selectSearch" parameterType="model.board.BoardDto" resultType="java.util.HashMap">
+     select * from YD_board
+     <choose>
+    
+     <when test="searchField != null and searchField.equals('id')">
+   	 where id like '%${searchValue}%'
+ 	 </when>
+     	 
+     <when test="searchField != null and searchField.equals('content')">
+   	 where content like '%${searchValue}%'
+ 	 </when> 
+     	 
+	<otherwise>
+	 where subject like '%${searchValue}%'
+	</otherwise>
+	</choose>
+ 	order by ref asc, ref_step asc limit #{startNum},10 
+ 	 </select>
+   
  </mapper>

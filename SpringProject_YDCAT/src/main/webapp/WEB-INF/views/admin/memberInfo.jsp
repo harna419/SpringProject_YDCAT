@@ -10,13 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 관리 페이지</title>
-<style type="text/css">
-	A:link {text-decoration:none;color:#696969; font-size:9pt;}
-	A:hover{text-decoration:yes;color:#66CCFF; font-size:9pt;}
-	.line{border-bottom:1px solid #D97A73}
-	TABLE{font-size:9pt;}
-	tr{	line-height: 30px}
-	</style>
+<link href="/YDCAT/resources/style.css" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="/YDCAT/resources/jquery.battatech.excelexport.js"></script>
 <script type="text/javascript">
@@ -57,9 +51,9 @@ function writeFormCheck(){
 엑셀 삽입/출력 예정
 회원 정보를 리스트로 뽑아내기-->
 
-<table bgcolor="#F2E3DB" align="center" id="excel_body">
+<table align="center" id="excel_body">
 	
-	<tr bgcolor="#D97A73">
+	<tr bgcolor="#CFE1E8">
 		<th width="80">회원번호</th>
 		<th width="80">아이디</th>
 		<th width="100">비밀번호</th>

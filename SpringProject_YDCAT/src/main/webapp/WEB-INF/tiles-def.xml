@@ -9,7 +9,7 @@
 		<put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
 		<put-attribute name="side" value="/WEB-INF/views/side.jsp"/>
 		
-		<put-attribute name="content" value="/WEB-INF/views/board/list.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/member/login.jsp"/>
 		<!-- 이게 중심이 되는 부분. 저 board 안에 회원가입이 들 수도, 게시판이 들어갈 수도 있는것. -->
 		
 		<put-attribute name="foot" value="/WEB-INF/views/foot.jsp"/>

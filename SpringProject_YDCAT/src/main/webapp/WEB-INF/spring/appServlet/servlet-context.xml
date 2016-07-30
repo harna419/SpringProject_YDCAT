@@ -46,7 +46,5 @@
 	<context:component-scan base-package="co.kr.YDCAT" />
 	<!-- AOP -->
 	 <aop:aspectj-autoproxy/>
-	 
-	 <beans:bean class="co.kr.YDCAT.LoggingAdvice">
-	 </beans:bean>
+	 <beans:bean class="co.kr.YDCAT.LoggingAdvice"/>
 </beans:beans>

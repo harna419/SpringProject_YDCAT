@@ -5,15 +5,7 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
-	
-	<style type="text/css">
-	A:link {text-decoration:none;color:#696969}
-	A:hover{text-decoration:yes;color:#66CCFF}
-	.line{border-bottom:1px solid #D97A73}
-	TABLE{font-size:9pt;}
-	tr{	line-height: 30px}
-	</style>
-	
+	<link href="/YDCAT/resources/style.css" rel="stylesheet" type="text/css">	
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 	function writeFormCheck(){
@@ -35,37 +27,36 @@
 	</head>
 	
 	<body>
-		<h2>글쓰기폼</h2>
-		
-		
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;글쓰기폼</h2>
+	
 		<form method="post" action="reply.do" onsubmit="return writeFormCheck()" enctype="multipart/form-data">
-		<table bgcolor="#F2E3DB">
+		<table align="center">
 		<tr>
 			<td align="right" colspan="2" class="line"><a href="list.do">리스트</a></td>
 			
 		<tr>
-			<th width="70" bgcolor="#D97A73">글쓴이</th>
+			<th width="110" bgcolor="#DAEBEA">글쓴이</th>
 			<td class="line"><%=session.getAttribute("loginId")%></td>
 		</tr>
 		
 		<tr>
-			<th bgcolor="#D97A73">글제목</th>
+			<th bgcolor="#DAEBEA">글제목</th>
 			<td class="line"><input type="text" id="subject" name="subject" size="30" value="[답글] "></td>
 		</tr>
 						
 		<tr>
-			<th bgcolor="#D97A73">글내용</th>
+			<th bgcolor="#DAEBEA">글내용</th>
 			<td class="line"><textarea name="content" id="content" cols="40" rows="13"></textarea></td>
 		</tr>
 		
 		<tr>
-		<td><input type="file" name="uploadfile"></td>
+		<td colspan="2"><input type="file" name="uploadfile"></td>
 		</tr>
 			
 		<tr>
 			<td colspan="2" align="center">
-			<input type="submit" value="글등록">
-			<input type="reset" value="리셋">
+			<input type="submit" value="글등록" class="but">
+			<input type="reset" value="리셋" class="but">
 			<input type="hidden" id="no" name="no" value="<%=request.getParameter("no")%>">
 			<input type="hidden" name="id" value="<%=session.getAttribute("loginId")%>">
 		</tr>

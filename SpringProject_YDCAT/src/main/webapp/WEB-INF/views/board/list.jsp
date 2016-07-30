@@ -8,27 +8,21 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
-	
-	<style type="text/css">
-	A:link {text-decoration:none;color:#696969; font-size:9pt;}
-	A:hover{text-decoration:yes;color:#66CCFF; font-size:9pt;}
-	.line{border-bottom:1px solid #D97A73}
-	TABLE{font-size:9pt;}
-	tr{	line-height: 30px}
-	</style>
-	
+
+	<link href="/YDCAT/resources/style.css" rel="stylesheet" type="text/css">
+
 	</head>
 	
 	<body>
 	<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;게시판 리스트</h2>
 		
-	<table bgcolor="#F2E3DB" align="center">
+	<table align="center">
 	<tr>
 		<td colspan="5" align="right">
 		<a href="writeForm.do">글쓰기</a></td>
 	</tr>
 	
-	<tr bgcolor="#D97A73">
+	<tr bgcolor="#CFE1E8">
 		<th width="80">글번호</th>
 		<th width="230">글제목</th>
 		<th width="120">글쓴이</th>
@@ -43,8 +37,8 @@
 		
 		<td class="line">&nbsp;&nbsp;	
 		<c:if test="${map.ref_level>0 }">		
-		<img src="/asdf/resources/level.png" width="${map.ref_level*25 }" height="15">
-		<img src="/asdf/resources/point.png" height="15">
+		<img src="/YDCAT/resources/level.png" width="${map.ref_level*25 }" height="15">
+		<img src="/YDCAT/resources/point.png" height="15">
 		<a href="content.do?no=${map.no }">${map.subject }</a>
 		</c:if>
 		
@@ -78,7 +72,7 @@
 			<option value="subject">글 제목</option>
 			<option value="content">글 내용</option>
 	</select>
-	<input type="text" name="searchValue">&nbsp;&nbsp;<input type="submit" value="검색">
+	<input type="text" name="searchValue">&nbsp;&nbsp;<input type="submit" value="검색" class="but">
 	</form>
 	</td>
 	</tr>

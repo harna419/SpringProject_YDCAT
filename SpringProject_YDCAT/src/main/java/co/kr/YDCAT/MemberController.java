@@ -107,7 +107,7 @@ public class MemberController {
 		System.out.println("로그인 시도!");		
 		if(memberDto==null){ //로그인 실패
 			System.out.println("로그인 실패");
-			return new ModelAndView(".main.member.loginSuccess", "memberDto", memberDto);
+			return new ModelAndView(".main.member.loginFail", "memberDto", memberDto);
 		}
 		
 		//세션 생성
@@ -182,8 +182,17 @@ public class MemberController {
 	//회원삭제
 	@RequestMapping("memberDelete.do")
 	public String userDelete(String id) throws NamingException, IOException {
-		sqlSession.delete("member.memberDelete", id);
-		return ".main.member.login";
+		return ".main.member.deleteForm";
 	}
+	
+	//회원삭제
+		@RequestMapping(value="/memberDelete.do", method=RequestMethod.POST)
+		public String userDeletePro(@ModelAttribute("memberDto") MemberDto memberDto) throws NamingException, IOException {
+			System.out.println("삭제 아이디: "+memberDto.getId());
+			System.out.println("삭제 아이디: "+memberDto.getPassword());
+			
+			sqlSession.delete("member.memberDelete", memberDto);
+			return ".main.member.login";
+		}
 	
 }//class

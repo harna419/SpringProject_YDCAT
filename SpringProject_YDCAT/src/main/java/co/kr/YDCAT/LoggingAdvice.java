@@ -33,7 +33,7 @@ public class LoggingAdvice {
  
 	
 	//글목록에서 글 쓰기를 할때 포인트컷을 잡는다.
-    @Pointcut("execution(* co.kr.YDCAT.BoardController.writeForm(..))")
+    @Pointcut("execution(* co.kr.YDCAT.BoardController.*Form(..))")
      public void logging() {};
      
     

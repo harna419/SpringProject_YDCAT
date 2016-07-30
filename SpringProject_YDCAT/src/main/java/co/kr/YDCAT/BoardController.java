@@ -114,7 +114,7 @@ public class BoardController {
 	
 	//´ä±Û¾²±â Æû
 	@RequestMapping("/replyForm.do")
-	public String replyForm(){
+	public String replyForm(HttpServletRequest request, HttpServletResponse response){
 		return ".main.board.replyForm"; //ºä.
 	}//writeForm()
 	

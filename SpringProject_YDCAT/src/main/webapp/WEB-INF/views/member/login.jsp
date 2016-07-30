@@ -51,7 +51,7 @@
 		<td width="200" align="right"><input type="text" name="id" id="id" size="20"></td>
 		<td width="20"></td>
 		<td width="60" align="center">PWD</td>
-		<td width="240"><input type="text" name="password" id="password" size="20"></td>
+		<td width="240"><input type="password" name="password" id="password" size="20"></td>
 	</tr>
 	
 	<tr>

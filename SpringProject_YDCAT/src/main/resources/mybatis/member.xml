@@ -40,4 +40,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from YD_member where id=#{id}
 	</select>
 
+	<!-- 멤버 목록 불러오기 -->
+   <select id="allMember" resultType="java.util.HashMap">
+	    SELECT * FROM YD_member
+   </select>
 </mapper>

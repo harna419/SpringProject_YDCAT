@@ -71,7 +71,17 @@ public class MemberController {
 	
 	//肺弊牢 汽
 	@RequestMapping("/login.do")
-	public String userLogin(){
+	public String userLogin(HttpServletRequest request){
+		
+		HttpSession session=request.getSession();
+		
+		System.out.println("技记ID"+session.getAttribute("loginId"));		
+		//System.out.println("技记"+session);		
+		
+		if(session.getAttribute("loginId") != null){
+			return ".main.member.loginSuccess";
+		}
+		
 		return ".main.member.login";//轰
 	}
 	

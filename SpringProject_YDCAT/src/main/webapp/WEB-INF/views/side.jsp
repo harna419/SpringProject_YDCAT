@@ -19,6 +19,7 @@
 	
 	<body>
 	
+	<!-- 세션을 변수로 받는다. -->
 	<c:set var="ses" value="${sessionScope.loginId}"/>
 	
 	<br>
@@ -26,6 +27,21 @@
 
 	
 	<c:choose>		
+		
+		<c:when test="${ses == 'admin'}">
+		<tr>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/loginSuccess.do">&nbsp;&nbsp; 홈</a></td>
+		</tr>
+		<tr><td height="10"></td></tr>
+		<tr>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/editForm.do">&nbsp;&nbsp; 정보수정</a></td>
+		</tr>
+		<tr>
+		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/memberInfo.do">&nbsp;&nbsp; 회원 관리</a></td>
+		</tr>
+		</c:when>
+		
+		
 		<c:when test="${ses!=null}">
 		<tr>
 		<td align="center" height="55"><font size="1" color="gray">■</font><a href="/YDCAT/loginSuccess.do">&nbsp;&nbsp; 홈</a></td>

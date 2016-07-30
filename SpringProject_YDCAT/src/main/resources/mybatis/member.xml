@@ -36,8 +36,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<!-- 회원 탈퇴 -->
-	<select id="memberDelete" parameterType="String">
-		delete from YD_member where id=#{id}
+	<select id="memberDelete" parameterType="model.member.MemberDto">
+		delete from YD_member where id=#{id} and password=#{password}
 	</select>
 
 	<!-- 멤버 목록 불러오기 -->

@@ -16,6 +16,7 @@
 	
 	function deleteUser(){
 		//alert("deleteUser(): "+document.updateForm.id.value);
+		
 		document.deleteForm.action = "memberDelete.do"; //회원탈퇴
 		document.deleteForm.submit();
 	}
@@ -40,7 +41,7 @@
 		
 		
 		 
-		 <b><%=session.getAttribute("loginId")%></b>
+		 <b><%=session.getAttribute("loginId")%>님 환영합니다.</b>
 		 
 		</td>
 	</tr>
@@ -67,7 +68,7 @@
 	<form method="get" name="updateForm">
 	</form>
 	
-	<form method="post" name="deleteForm">
+	<form method="get" name="deleteForm">
 		<input type="hidden" id="id" name="id" value="${id }">
 	</form>
 	

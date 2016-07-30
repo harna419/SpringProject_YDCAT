@@ -13,7 +13,7 @@
 	
 	<c:set var="ses" value="${sessionScope.loginId}"/>
 	
-	<img src="/asdf/resources/book.jpg" width="900"><br>
+	<img src="/YDCAT/resources/8.jpg" width="900" height="20"><br>
 	<a href="/YDCAT/list.do">글목록</a>&nbsp;&nbsp;&nbsp;&nbsp;
 	<c:choose>		
 		<c:when test="${ses!=null}">

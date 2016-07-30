@@ -41,7 +41,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<!-- 멤버 목록 불러오기 -->
-   <select id="allMember" resultType="java.util.HashMap">
-	    SELECT * FROM YD_member
+   <select id="allMember" parameterType="int" resultType="java.util.HashMap">
+	    SELECT * FROM YD_member limit #{startNum},10
    </select>
+   
+    <!-- 글 갯수 구하기 -->
+	<select id="countNum" resultType="int">
+		select count(*) countNum from YD_member
+	</select>
 </mapper>

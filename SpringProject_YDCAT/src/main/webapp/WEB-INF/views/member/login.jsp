@@ -43,7 +43,7 @@
 	<form method="post" action="loginPro.do" onSubmit="return check()">
 	<table width="600" align="center">
 	<tr>
-		<td height="370" colspan="5" align="center"><img src="/asdf/resources/pic.jpg" width="420">
+		<td height="400" colspan="5" align="center"><img src="/YDCAT/resources/1.jpg">
 		</td>
 	</tr>
 	<tr>
